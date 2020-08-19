@@ -8,92 +8,41 @@ import { jqxGridComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid
 })
 
 export class AppComponent {
-    @ViewChild('myGrid', { static: false }) myGrid: jqxGridComponent; 
+  @ViewChild('myGrid', { static: false }) myGrid: jqxGridComponent; 
 
-    constructor( private http: HttpService ) {
-      console.log("00001")
-    }
+  constructor( private http: HttpService ) {
+    console.log("00001")
+  }
 
-    source: any =
-    {
-        datatype: 'json',
-        url: '../assets/users.txt',
-        totalrecords: 1000000
-    }
+  source: any =
+  {
+    datatype: 'json',
+    url: '../assets/users.txt',
+    totalrecords: 1000000
+  }
 
 	getWidth() : any {
-		if (document.body.offsetWidth < 850) {
-			return '90%';
-		}
-		
 		return 850;
 	}
 
-    dataAdapter: any = new jqx.dataAdapter(this.source);
+  dataAdapter: any = new jqx.dataAdapter(this.source);
 
-    rendergridrows = (params: any): any => {
-      console.log("...rendergridrows.params:", params);    
-      return params.data;
-    }
+  rendergridrows = (params: any): any => {
+    console.log("...rendergridrows.params:", params);    
+    return params.data;
+  }
 
-    totalcolumnrenderer = (row: number, column: any, cellvalue: any): string => {
-        let newCellValue = jqx.dataFormat.formatnumber(cellvalue, 'c2');
-        return '<span style="margin: 6px 3px; font-size: 12px; float: right; font-weight: bold;">' + newCellValue + '</span>';
-    }
+  columns: any[] =
+  [
+    { text: 'Id', datafield: 'id', width: 50 },
+    { text: 'First Name', datafield: 'firstname', width: 120 },
+    { text: 'Last Name', datafield: 'lastname', width: 120 },
+    { text: 'Product', datafield: 'productname', width: 180 },
+    { text: 'Unit Price', datafield: 'price', width: 100, cellsalign: 'right', cellsformat: 'c2' }
+  ];
 
-    columns: any[] =
-    [
-        { text: 'Id', datafield: 'id', width: 50 },
-        { text: 'First Name', datafield: 'firstname', width: 120 },
-        { text: 'Last Name', datafield: 'lastname', width: 120 },
-        { text: 'Product', datafield: 'productname', width: 180 },
-        { text: 'Quantity', datafield: 'quantity', width: 100, cellsalign: 'right' },
-        { text: 'Unit Price', datafield: 'price', width: 100, cellsalign: 'right', cellsformat: 'c2' },
-        { text: 'Total', datafield: 'total', cellsrenderer: this.totalcolumnrenderer, cellsalign: 'right' }
-    ];
+  refreshData() {
+    this.myGrid.updatebounddata();
+  }
 
-
-
-    firstNames: string[] =
-      [
-          'Andrew', 'Nancy', 'Shelley', 'Regina', 'Yoshi', 'Antoni', 'Mayumi', 'Ian', 'Peter', 'Lars', 'Petra', 'Martin', 'Sven', 'Elio', 'Beate', 'Cheryl', 'Michael', 'Guylene'
-      ];
-
-    lastNames: string[] =
-      [
-          'Fuller', 'Davolio', 'Burke', 'Murphy', 'Nagase', 'Saavedra', 'Ohno', 'Devling', 'Wilson', 'Peterson', 'Winkler', 'Bein', 'Petersen', 'Rossi', 'Vileid', 'Saylor', 'Bjorn', 'Nodier'
-      ];
-
-    productNames: string[] =
-      [
-          'Black Tea', 'Green Tea', 'Caffe Espresso', 'Doubleshot Espresso', 'Caffe Latte', 'White Chocolate Mocha', 'Cramel Latte', 'Caffe Americano', 'Cappuccino', 'Espresso Truffle', 'Espresso con Panna', 'Peppermint Mocha Twist'
-      ];
-
-      priceValues: string[] =
-      [
-          '2.25', '1.5', '3.0', '3.3', '4.5', '3.6', '3.8', '2.5', '5.0', '1.75', '3.25', '4.0'
-      ];
-
-    refreshData() {
-      this.myGrid.updatebounddata();
-    }
-
-    generateData(startindex: number, endindex: number): any {
-        let data = {};
-        for (let i = startindex; i < endindex; i++) {
-            let row = {};
-            let productindex = Math.floor(Math.random() * this.productNames.length);
-            let price = parseFloat(this.priceValues[productindex]);
-            let quantity = 1 + Math.round(Math.random() * 10);
-            row['id'] = i;
-            row['firstname'] = this.firstNames[Math.floor(Math.random() * this.firstNames.length)];
-            row['lastname'] = this.lastNames[Math.floor(Math.random() * this.lastNames.length)];
-            row['productname'] = this.productNames[productindex];
-            row['price'] = price;
-            row['quantity'] = quantity;
-            row['total'] = price * quantity;
-            data[i] = row;
-        }
-        return data;
-    }
 }
