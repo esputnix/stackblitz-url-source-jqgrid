@@ -14,8 +14,8 @@ export class AppComponent {
 
     source: any =
     {
-        datatype: 'array',
-        localdata: {},
+        datatype: 'json',
+        url: '../assets/users.txt',
         totalrecords: 1000000
     }
 
@@ -29,18 +29,9 @@ export class AppComponent {
 
     dataAdapter: any = new jqx.dataAdapter(this.source);
 
-    rendergridrows = (params: any): any[] => {
-        console.log("00000")
-        // let data = this.generateData(params.startindex, params.endindex);
-        // return data;
-
-        this.http.getData("params")
-        .subscribe(rows => {
-          console.log("<<<< 0000 >>>> rendergridrows.getData.rows:", rows);
-          return rows;
-        });
-
-        
+    rendergridrows = (params: any): any => {
+      console.log("...rendergridrows.params:", params);    
+      return params.data;
     }
 
     totalcolumnrenderer = (row: number, column: any, cellvalue: any): string => {
