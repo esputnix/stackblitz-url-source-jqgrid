@@ -1,6 +1,6 @@
-﻿import { Component } from '@angular/core';
-
+﻿import { Component, ViewChild, ElementRef } from '@angular/core';
 import { HttpService } from './http.service';
+import { jqxGridComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts'
 
 @Component({
     selector: 'app-root',
@@ -8,6 +8,8 @@ import { HttpService } from './http.service';
 })
 
 export class AppComponent {
+    @ViewChild('myGrid', { static: false }) myGrid: jqxGridComponent; 
+
     constructor( private http: HttpService ) {
       console.log("00001")
     }
@@ -72,12 +74,8 @@ export class AppComponent {
           '2.25', '1.5', '3.0', '3.3', '4.5', '3.6', '3.8', '2.5', '5.0', '1.75', '3.25', '4.0'
       ];
 
-    makeHttpRequest() {
-      this.http.getData("params")
-      .subscribe(rows => {
-        console.log("... 0000 >>>>.getData.rows:", rows);
-        return rows;
-      }); 
+    refreshData() {
+      this.myGrid.updatebounddata();
     }
 
     generateData(startindex: number, endindex: number): any {

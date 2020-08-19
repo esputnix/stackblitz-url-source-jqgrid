@@ -1,6 +1,6 @@
 ﻿<div style="font-size: 13px; font-family: Verdana; float: left">
 
-    <jqxGrid [theme]="'material'" 
+    <jqxGrid #myGrid [theme]="'material'" 
         [width]="getWidth()" [source]="dataAdapter" [columns]="columns"
         [autoheight]="true" [virtualmode]="false" [pageable]="true"
         [rendergridrows]="rendergridrows">
@@ -9,4 +9,4 @@
 
 </div>
 
-<jqxButton (onClick)="makeHttpRequest()">Make Request</jqxButton>
+<jqxButton (onClick)="refreshData()">Refresh Data</jqxButton>
