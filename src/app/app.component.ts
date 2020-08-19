@@ -11,7 +11,6 @@ export class AppComponent {
   @ViewChild('myGrid', { static: false }) myGrid: jqxGridComponent; 
 
   constructor( private http: HttpService ) {
-    console.log("00001")
   }
 
   source: any =
