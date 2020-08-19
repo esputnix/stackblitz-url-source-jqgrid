@@ -1,0 +1,24 @@
+[
+
+		{"id": 0, "firstname": "Cheryl", "lastname": "Nodier", "productname": "Doubleshot Espresso", "price": 3.3},
+		{"id": 1, "firstname": "Shelley", "lastname": "Wilson", "productname": "White Chocolate Mocha", "price": 3.6},
+		{"id": 2, "firstname": "Guylene", "lastname": "Bjorn", "productname": "Caffe Espresso", "price": 3},
+		{"id": 3, "firstname": "Shelley", "lastname": "Vileid", "productname": "Caffe Espresso", "price": 3},
+    {"id": 4, "firstname": "Michael", "lastname": "Saavedra", "productname": "Black Tea", "price": 2.25},
+    {"id": 5, "firstname": "Mayumi", "lastname": "Peterson", "productname": "Green Tea", "price": 1.5},
+    {"id": 6, "firstname": "Yoshi", "lastname": "Wilson", "productname": "Caffe Espresso", "price": 3},
+    {"id": 7, "firstname": "Andrew", "lastname": "Saavedra", "productname": "Peppermint Mocha Twist", "price": 4},
+    {"id": 8, "firstname": "Martin", "lastname": "Murphy", "productname": "Espresso Truffle", "price": 1.75},
+    {"id": 9, "firstname": "Yoshi", "lastname": "Davolio", "productname": "Caffe Latte", "price": 4.5},
+    {"id": 10, "firstname": "Beate", "lastname": "Saavedra", "productname": "Peppermint Mocha Twist", "price": 4},
+    {"id": 11, "firstname": "Elio", "lastname": "Murphy", "productname": "Caffe Latte", "price": 4.5},
+    {"id": 12, "firstname": "Cheryl", "lastname": "Peterson", "productname": "Caffe Americano", "price": 2.5},
+    {"id": 13, "firstname": "Peter", "lastname": "Nagase", "productname": "Green Tea", "price": 1.5},
+    {"id": 14, "firstname": "Regina", "lastname": "Wilson", "productname": "Black Tea", "price": 2.25},
+    {"id": 15, "firstname": "Guylene", "lastname": "Ohno", "productname": "Caffe Americano", "price": 2.5},
+    {"id": 16, "firstname": "Petra", "lastname": "Nodier", "productname": "Caffe Latte", "price": 4.5},
+    {"id": 17, "firstname": "Martin", "lastname": "Devling", "productname": "Caffe Americano", "price": 2.5},
+    {"id": 18, "firstname": "Antoni", "lastname": "Rossi", "productname": "Caffe Latte", "price": 4.5},
+    {"id": 19, "firstname": "Elio", "lastname": "Nodier", "productname": "Green Tea", "price": 1.5}
+
+]

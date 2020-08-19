@@ -1,0 +1,12 @@
+﻿<div style="font-size: 13px; font-family: Verdana; float: left">
+
+    <jqxGrid [theme]="'material'" 
+        [width]="getWidth()" [source]="dataAdapter" [columns]="columns"
+        [autoheight]="true" [virtualmode]="false" [pageable]="true"
+        [rendergridrows]="rendergridrows">
+    </jqxGrid>
+
+
+</div>
+
+<jqxButton (onClick)="makeHttpRequest()">Make Request</jqxButton>
